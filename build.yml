@@ -21,7 +21,6 @@ jobs:
       - name: Build
         run: |
           cd "$PROJ"
-          # version with real rewarded video ads; if that fails, build the offline version
           gradle assembleAdmobDebug --no-daemon || gradle assembleOfflineDebug --no-daemon
           cp "$(find app/build/outputs/apk -name '*.apk' | head -n 1)" "$GITHUB_WORKSPACE/SlingSmash.apk"
       - uses: actions/upload-artifact@v4
